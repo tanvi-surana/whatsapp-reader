@@ -3,15 +3,15 @@ import os
 from django.db import models
 
 # Create your models here.
-class upload_data(models.Model):
-	upload = models.FileField(upload_to='uploaded_files/')
+class Document(models.Model):
+	docfile = models.FileField(upload_to='uploaded_files/')
 	def __str__(self):
-		return os.path.basename(self.upload.name)
+		return os.path.basename(self.docfile.name)
 	class Meta:
-		verbose_name = 'file'
-		verbose_name_plural = 'files'
+		verbose_name = 'docfile'
+		verbose_name_plural = 'docfiles'
   
-
+ 
 
 
 # Tag include is not about inserting something from model into your template. Is about inserting content of specified template. You need to write custom template filter which will read your file content and return it into template:
